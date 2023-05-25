@@ -46,11 +46,11 @@ class PdfReport:
         pdf.cell(w=100, h=40, txt="Period:", border=1)
         pdf.cell(w=150, h=40, txt=bill.period, border=1, ln=1)
 
-        # Insert Flatmate1 and their bill to pay
+        # Insert name and due amount to pay of second flatmate
         pdf.cell(w=100, h=40, txt=flatmate1.name, border=1)
         pdf.cell(w=150, h=40, txt=f"{flatmate1.pays(bill, flatmate2=flatmate2)} PLN", border=1, ln=1)
 
-        # Insert Flatmate2 and their bill to pay
+        # Insert name and due amount to pay of second flatmate
         pdf.cell(w=100, h=40, txt=flatmate2.name, border=1)
         pdf.cell(w=150, h=40, txt=f"{flatmate2.pays(bill, flatmate2=flatmate1)} PLN", border=1, ln=1)
 
