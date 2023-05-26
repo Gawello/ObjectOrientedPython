@@ -69,29 +69,22 @@ class PdfReport:
         # webbrowser.open(self.file_name)
 
 
-# CLI
-# User enter amount and period of a bill
 amount = input("Hey user, enter the bill amount: ")
-period = input("Enter period for your bill (like: \"March 2023\"): ")
+period = input("Enter period for your bill (E.g. \"March 2023\"): ")
 the_bill = Bill(float(amount), period)
 
-# Enter first flatmates name and number of days
 name1 = input("Enter first flatmate name: ")
-days1 = input(f"How many days {name1} was in the house: ")
+days1 = input(f"How many days {name1} was in house: ")
 
-# Enter second flatmate name and number of days
 name2 = input("Enter second flatmate name: ")
-days2 = input(f"How many days {name2} was in the house: ")
+days2 = input(f"How many days {name2} was in house: ")
 
-flatmate1 = Flatmate(name1, float(days1))
-flatmate2 = Flatmate(name2, float(days2))
+# the_bill = Bill(amount=120, period="March 2023")
+mate1 = Flatmate(name1, float(days1))
+mate2 = Flatmate(name2, float(days2))
 
-# # the_bill = Bill(amount=120, period="March 2023")
-# john = Flatmate(name="John", days_in_house=20)
-# marry = Flatmate(name="Marry", days_in_house=25)
-
-print(f"{name1} pays: ", flatmate1.pays(the_bill, flatmate2))
-print(f"{name2} pays: ", flatmate2.pays(the_bill, flatmate1))
+print(f"{name1} pays: ", mate1.pays(bill=the_bill, flatmate2=mate2))
+print(f"{name2} pays: ", mate2.pays(the_bill, mate1))
 
 pdf_report = PdfReport(file_name="Report1.pdf")
-pdf_report.generate(flatmate1=flatmate1, flatmate2=flatmate2, bill=the_bill)
+pdf_report.generate(flatmate1=mate1, flatmate2=mate2, bill=the_bill)
